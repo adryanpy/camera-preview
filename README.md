@@ -24,9 +24,10 @@ Capacitor plugin that allows camera interaction from Javascript and HTML (based 
 # Fork notations
 Changed the method of obtaining video permissions for the web because the current one has compatibility
 issues with some browsers. 
+
 Current is: 
-```
-javascript navigator.permissions.query({ name: "camera"}).then(res => {
+```javascript 
+navigator.permissions.query({ name: "camera"}).then(res => {
   if (res.state == "denied") {
     reject({ message: "permission failed" });
   }
