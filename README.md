@@ -21,6 +21,26 @@ Capacitor plugin that allows camera interaction from Javascript and HTML (based 
   <li>Tap to focus</li>
 </ul> -->
 
+# Fork notations
+Changed the method of obtaining video permissions for the web because the current one has compatibility
+issues with some browsers. 
+Current is: 
+```
+javascript navigator.permissions.query({ name: "camera"}).then(res => {
+  if (res.state == "denied") {
+    reject({ message: "permission failed" });
+  }
+});
+
+```
+New implementation: 
+```javascript 
+navigator.mediaDevices.getUserMedia({audio:true, video:true}) 
+```
+
+Following the Mozilla Developers recomendation:
+[MediaDevices](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia)
+
 # Installation
 
 <!-- Use any one of the installation methods listed below depending on which framework you use. -->
